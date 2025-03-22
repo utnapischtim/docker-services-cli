@@ -113,6 +113,7 @@ REDIS = {
         },
         "cache": {
             "CACHE_TYPE": "redis",
+            "CACHE_REDIS_HOST": "127.0.0.1",
             "CACHE_REDIS_PORT": "6380",
             "BROKER_URL": "redis://127.0.0.1:6380/0",
             "CELERY_BROKER_URL": "redis://127.0.0.1:6380/0",

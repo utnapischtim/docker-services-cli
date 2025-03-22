@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # Copyright (C) 2020 CERN.
-# Copyright (C) 2024 Graz University of Technology.
+# Copyright (C) 2024-2025 Graz University of Technology.
 # Copyright (C) 2025 CESNET z.s.p.o.
 #
 # Docker-Services-CLI is free software; you can redistribute it and/or modify
@@ -41,7 +41,7 @@ def search_healthcheck(*args, **kwargs):
     verbose = kwargs["verbose"]
 
     return _run_healthcheck_command(
-        ["curl", "-f", "localhost:9200/_cluster/health?wait_for_status=green"], verbose
+        ["curl", "-f", "127.0.0.1:9201/_cluster/health?wait_for_status=yellow"], verbose
     )
 
 

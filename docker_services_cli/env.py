@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # Copyright (C) 2020 CERN.
-# Copyright (C) 2024 Graz University of Technology.
+# Copyright (C) 2024-2025 Graz University of Technology.
 # Copyright (C) 2025 CESNET z.s.p.o.
 #
 # Docker-Services-CLI is free software; you can redistribute it and/or modify
