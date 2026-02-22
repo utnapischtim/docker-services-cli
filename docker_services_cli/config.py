@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # Copyright (C) 2020-2025 CERN.
-# Copyright (C) 2024-2025 Graz University of Technology.
+# Copyright (C) 2024-2026 Graz University of Technology.
 #
 # Docker-Services-CLI is free software; you can redistribute it and/or modify
 # it under the terms of the MIT License; see LICENSE file for more details.
@@ -45,10 +45,11 @@ ELASTICSEARCH = {
 
 # Opensearch
 OPENSEARCH = {
-    "OPENSEARCH_VERSION": "OPENSEARCH_2_LATEST",
+    "OPENSEARCH_VERSION": "OPENSEARCH_3_LATEST",
     "DEFAULT_VERSIONS": {
         "OPENSEARCH_1_LATEST": "1.3.18",
         "OPENSEARCH_2_LATEST": "2.16.0",
+        "OPENSEARCH_3_LATEST": "3.3.2",
     },
     "CONTAINER_CONNECTION_ENVIRONMENT_VARIABLES": {
         "search": {
@@ -60,11 +61,12 @@ OPENSEARCH = {
 
 # PostgreSQL
 POSTGRESQL = {
-    "POSTGRESQL_VERSION": "POSTGRESQL_16_LATEST",
+    "POSTGRESQL_VERSION": "POSTGRESQL_18_LATEST",
     "DEFAULT_VERSIONS": {
         "POSTGRESQL_14_LATEST": "14.9",
         "POSTGRESQL_15_LATEST": "15.4",
         "POSTGRESQL_16_LATEST": "16.2",
+        "POSTGRESQL_18_LATEST": "18-alpine",
     },
     "CONTAINER_CONFIG_ENVIRONMENT_VARIABLES": {
         "POSTGRESQL_USER": "invenio",
@@ -98,10 +100,11 @@ MYSQL = {
 """MySQL service configuration."""
 
 REDIS = {
-    "REDIS_VERSION": "REDIS_7_LATEST",
+    "REDIS_VERSION": "REDIS_8_LATEST",
     "DEFAULT_VERSIONS": {
         "REDIS_6_LATEST": "6",
-        "REDIS_7_LATEST": "7",
+        "REDIS_7_LATEST": "7-alpine",
+        "REDIS_8_LATEST": "8-alpine",
     },
     "CONTAINER_CONNECTION_ENVIRONMENT_VARIABLES": {
         "mq": {
@@ -125,10 +128,13 @@ REDIS = {
 """Redis service configuration."""
 
 RABBITMQ = {
-    "RABBITMQ_VERSION": "RABBITMQ_3_LATEST",
-    "DEFAULT_VERSIONS": {"RABBITMQ_3_LATEST": "3"},
+    "RABBITMQ_VERSION": "RABBITMQ_4_LATEST",
+    "DEFAULT_VERSIONS": {
+        "RABBITMQ_3_LATEST": "3",
+        "RABBITMQ_4_LATEST": "4-alpine",
+    },
     "CONTAINER_CONNECTION_ENVIRONMENT_VARIABLES": {
-        "mq": {"BROKER_URL": "amqp://localhost:5672//"}
+        "mq": {"BROKER_URL": "amqp://localhost:5673/"}
     },
 }
 """RabbitMQ service configuration."""

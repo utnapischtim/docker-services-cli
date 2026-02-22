@@ -24,6 +24,7 @@ def _run_healthcheck_command(command, verbose=False):
     output, error = p.communicate()
     output = output.decode("utf-8")
     error = error.decode("utf-8")
+
     if p.returncode == 0:
         if verbose:
             click.secho(output, fg="green")
@@ -59,7 +60,7 @@ def postgresql_healthcheck(*args, **kwargs):
             "exec",
             "-T",
             "postgresql",
-            "bash",
+            "sh",
             "-c",
             "pg_isready",
         ],
@@ -104,7 +105,7 @@ def rabbitmq_healthcheck(*args, **kwargs):
             "exec",
             "-T",
             "rabbitmq",
-            "bash",
+            "sh",
             "-c",
             "rabbitmq-diagnostics check_running",
         ],
@@ -126,7 +127,7 @@ def redis_healthcheck(*args, **kwargs):
             "exec",
             "-T",
             "redis",
-            "bash",
+            "sh",
             "-c",
             "redis-cli ping",
             "|",

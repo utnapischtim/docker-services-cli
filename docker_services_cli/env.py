@@ -85,12 +85,13 @@ def _load_or_set_env(services_version, default_version):
         os.environ[services_version] = major_version_from_env
 
     else:
-        click.secho(
-            f"Environment variable for version {version_from_env} not set \
-            or set to a non-compliant format (dot separated numbers).",
-            fg="red",
-        )
-        sys.exit(1)
+        os.environ[services_version] = major_version_from_env
+        # click.secho(
+        #     f"Environment variable for version {version_from_env} not set \
+        #     or set to a non-compliant format (dot separated numbers).",
+        #     fg="red",
+        # )
+        # sys.exit(1)
 
 
 def override_default_env(services_to_override=None):

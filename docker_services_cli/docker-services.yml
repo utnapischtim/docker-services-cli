@@ -3,6 +3,7 @@
 # Copyright (C) 2020-2025 CERN.
 # Copyright (C) 2024 KTH Royal Institute of Technology.
 # Copyright (C) 2025 CESNET z.s.p.o.
+# Copyright (C) 2025 Graz University of Technology.
 #
 # Docker-Services-CLI is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
@@ -13,7 +14,7 @@ services:
     restart: "unless-stopped"
     read_only: true
     ports:
-      - "${DOCKER_SERVICES_IP_BIND:-127.0.0.1}:6379:6379"
+      - "${DOCKER_SERVICES_IP_BIND:-127.0.0.1}:6380:6379"
   mysql:
     image: mysql:${MYSQL_VERSION}
     restart: "unless-stopped"
@@ -32,7 +33,7 @@ services:
       - "POSTGRES_PASSWORD=${POSTGRESQL_PASSWORD}"
       - "POSTGRES_DB=${POSTGRESQL_DB}"
     ports:
-      - "${DOCKER_SERVICES_IP_BIND:-127.0.0.1}:5432:5432"
+      - "${DOCKER_SERVICES_IP_BIND:-127.0.0.1}:5433:5432"
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch-oss:${ELASTICSEARCH_VERSION}
     restart: "unless-stopped"
@@ -46,8 +47,8 @@ services:
         hard: -1
     mem_limit: 2g
     ports:
-      - "${DOCKER_SERVICES_IP_BIND:-127.0.0.1}:9200:9200"
-      - "${DOCKER_SERVICES_IP_BIND:-127.0.0.1}:9300:9300"
+      - "${DOCKER_SERVICES_IP_BIND:-127.0.0.1}:9201:9200"
+      - "${DOCKER_SERVICES_IP_BIND:-127.0.0.1}:9301:9300"
   opensearch:
     image: opensearchproject/opensearch:${OPENSEARCH_VERSION}
     restart: "unless-stopped"
@@ -66,14 +67,14 @@ services:
         hard: 65536
     mem_limit: 2g
     ports:
-      - "${DOCKER_SERVICES_IP_BIND:-127.0.0.1}:9200:9200"
-      - "${DOCKER_SERVICES_IP_BIND:-127.0.0.1}:9300:9300"
+      - "${DOCKER_SERVICES_IP_BIND:-127.0.0.1}:9201:9200"
+      - "${DOCKER_SERVICES_IP_BIND:-127.0.0.1}:9301:9300"
   rabbitmq:
-    image: rabbitmq:${RABBITMQ_VERSION}-management
+    image: rabbitmq:${RABBITMQ_VERSION}
     restart: "unless-stopped"
     ports:
-      - "${DOCKER_SERVICES_IP_BIND:-127.0.0.1}:15672:15672"
-      - "${DOCKER_SERVICES_IP_BIND:-127.0.0.1}:5672:5672"
+      - "${DOCKER_SERVICES_IP_BIND:-127.0.0.1}:15673:15672"
+      - "${DOCKER_SERVICES_IP_BIND:-127.0.0.1}:5673:5672"
   minio:
     image: minio/minio:${MINIO_VERSION}
     restart: "unless-stopped"
